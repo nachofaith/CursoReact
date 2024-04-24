@@ -35,24 +35,26 @@ function App() {
 
   const updateBoard = (index) => {
     //VALIDAR SI HAY VALORES EN LOS CUADRADOS
-    if (board[index] || winner) return;
+    if (board[index] || winner) {
+      return;
+    } else {
+      const newBoard = [...board];
+      newBoard[index] = turn;
+      setBoard(newBoard);
 
-    const newBoard = [...board];
-    newBoard[index] = turn;
-    setBoard(newBoard);
+      const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
+      setTurn(newTurn);
 
-    const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
-    setTurn(newTurn);
+      window.localStorage.setItem("board", JSON.stringify(newBoard));
+      window.localStorage.setItem("turn", turn);
 
-    window.localStorage.setItem("board", JSON.stringify(newBoard));
-    window.localStorage.setItem("turn", turn);
-
-    const newWinner = checkWinner(newBoard);
-    if (newWinner) {
-      confetti();
-      setWinner(newWinner);
-    } else if (checkEndGame(newBoard)) {
-      setWinner(false);
+      const newWinner = checkWinner(newBoard);
+      if (newWinner) {
+        confetti();
+        setWinner(newWinner);
+      } else if (checkEndGame(newBoard)) {
+        setWinner(false);
+      }
     }
   };
 
