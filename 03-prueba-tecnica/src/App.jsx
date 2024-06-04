@@ -37,11 +37,22 @@ useEffect(() => {
 
 } , [fact])
 
+const handleClick = () => {
 
+  fetch(API_URL_FACT)
+      .then((res) => res.json())
+      .then((data) => {
+        const { fact } = data;
+        setFact(fact);
+
+       
+      });
+}
 
   return (
     <main>
       <h1>App de Gatos</h1>
+      <button onClick={handleClick}>Nuevo Hecho</button>
       {fact && <p>{fact}</p>}
       {imageUrl && <img src={imageUrl} alt="Imagen obtenida aleatoriamente" />}
     </main>
