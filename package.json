@@ -1,0 +1,20 @@
+{
+  "name": "cursoreact",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nachofaith/CursoReact.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nachofaith/CursoReact/issues"
+  },
+  "homepage": "https://github.com/nachofaith/CursoReact#readme"
+}
